@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"D:\\GitHub\\HW09\\BaseBall\\Source\\BaseBall\\BaseBall.Build.cs",
+		"D:\\GitHub\\HW09\\BaseBall\\Source\\BaseBall.Target.cs",
+		"D:\\GitHub\\HW09\\BaseBall\\Source\\BaseBallEditor.Target.cs"
+	],
+	"EngineVersion": "5.5.4"
+}
