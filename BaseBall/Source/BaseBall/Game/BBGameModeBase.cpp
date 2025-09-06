@@ -14,6 +14,8 @@ void ABBGameModeBase::OnPostLogin(AController* NewPlayer)
 	ABBPlayerController* BBPlayerController = Cast<ABBPlayerController>(NewPlayer);
 	if (IsValid(BBPlayerController) == true)
 	{
+		BBPlayerController->NotificationText = FText::FromString(TEXT("Connected to the game server."));
+		
 		AllPlayerControllers.Add(BBPlayerController);
 
 		ABBPlayerState* BBPS = BBPlayerController->GetPlayerState<ABBPlayerState>();
@@ -141,6 +143,8 @@ void ABBGameModeBase::PrintChatMessageString(ABBPlayerController* InChattingPlay
 			{
 				FString CombinedMessageString = InChatMessageString + TEXT(" -> ") + JudgeResultString;
 				BBPlayerController->ClientRPCPrintChatMessageString(CombinedMessageString);
+				int32 StrikeCount = FCString::Atoi(*JudgeResultString.Left(1));
+				JudgeGame(InChattingPlayerController, StrikeCount);
 			}
 		}
 	}
@@ -163,5 +167,63 @@ void ABBGameModeBase::IncreaseGuessCount(ABBPlayerController* InChattingPlayerCo
 	if (IsValid(BBPS) == true)
 	{
 		BBPS->CurrentGuessCount++;
+	}
+}
+
+void ABBGameModeBase::ResetGame()
+{
+	SecretNumberString = GenerateSecretNumber();
+
+	for (const auto& BBPlayerController : AllPlayerControllers)
+	{
+		ABBPlayerState* BBPS = BBPlayerController->GetPlayerState<ABBPlayerState>();
+		if (IsValid(BBPS) == true)
+		{
+			BBPS->CurrentGuessCount = 0;
+		}
+	}
+}
+
+void ABBGameModeBase::JudgeGame(ABBPlayerController* InChattingPlayerController, int InStrikeCount)
+{
+	if (3 == InStrikeCount)
+	{
+		ABBPlayerState* BBPS = InChattingPlayerController->GetPlayerState<ABBPlayerState>();
+		for (const auto& BBPlayerController : AllPlayerControllers)
+		{
+			if (IsValid(BBPS) == true)
+			{
+				FString CombinedMessageString = BBPS->PlayerNameString + TEXT(" has won the game.");
+				BBPlayerController->NotificationText = FText::FromString(CombinedMessageString);
+
+				ResetGame();
+			}
+		}
+	}
+	else
+	{
+		bool bIsDraw = true;
+		for (const auto& BBPlayerController : AllPlayerControllers)
+		{
+			ABBPlayerState* BBPS = BBPlayerController->GetPlayerState<ABBPlayerState>();
+			if (IsValid(BBPS) == true)
+			{
+				if (BBPS->CurrentGuessCount < BBPS->MaxGuessCount)
+				{
+					bIsDraw = false;
+					break;
+				}
+			}
+		}
+
+		if (true == bIsDraw)
+		{
+			for (const auto& BBPlayerController : AllPlayerControllers)
+			{
+				BBPlayerController->NotificationText = FText::FromString(TEXT("Draw..."));
+
+				ResetGame();
+			}
+		}
 	}
 }

@@ -14,26 +14,30 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define BASEBALL_BBPlayerController_generated_h
 
-#define FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void ServerRPCPrintChatMessageString_Implementation(const FString& InChatMessageString); \
 	virtual void ClientRPCPrintChatMessageString_Implementation(const FString& InChatMessageString); \
 	DECLARE_FUNCTION(execServerRPCPrintChatMessageString); \
 	DECLARE_FUNCTION(execClientRPCPrintChatMessageString);
 
 
-#define FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_16_CALLBACK_WRAPPERS
-#define FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_16_INCLASS_NO_PURE_DECLS \
+#define FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_17_CALLBACK_WRAPPERS
+#define FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesABBPlayerController(); \
 	friend struct Z_Construct_UClass_ABBPlayerController_Statics; \
 public: \
 	DECLARE_CLASS(ABBPlayerController, APlayerController, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/BaseBall"), NO_API) \
-	DECLARE_SERIALIZER(ABBPlayerController)
+	DECLARE_SERIALIZER(ABBPlayerController) \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		NotificationText=NETFIELD_REP_START, \
+		NETFIELD_REP_END=NotificationText	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
-#define FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_16_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API ABBPlayerController(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
+#define FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	ABBPlayerController(ABBPlayerController&&); \
@@ -41,18 +45,18 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, ABBPlayerController); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ABBPlayerController); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ABBPlayerController) \
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ABBPlayerController) \
 	NO_API virtual ~ABBPlayerController();
 
 
-#define FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_13_PROLOG
-#define FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_16_GENERATED_BODY \
+#define FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_14_PROLOG
+#define FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_16_CALLBACK_WRAPPERS \
-	FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_16_INCLASS_NO_PURE_DECLS \
-	FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_16_ENHANCED_CONSTRUCTORS \
+	FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_17_CALLBACK_WRAPPERS \
+	FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_17_INCLASS_NO_PURE_DECLS \
+	FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

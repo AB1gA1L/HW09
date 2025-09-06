@@ -10,6 +10,12 @@
 #include "Kismet/GameplayStatics.h"
 #include "Game/BBGameModeBase.h"
 #include "BBPlayerState.h"
+#include "Net/UnrealNetwork.h"
+
+ABBPlayerController::ABBPlayerController()
+{
+	bReplicates = true;
+}
 
 void ABBPlayerController::BeginPlay()
 {
@@ -29,6 +35,15 @@ void ABBPlayerController::BeginPlay()
 		if (IsValid(ChatInputWidgetInstance) == true)
 		{
 			ChatInputWidgetInstance->AddToViewport();
+		}
+	}
+
+	if (IsValid(NotificationTextWidgetClass) == true)
+	{
+		NotificationTextWidgetInstance = CreateWidget<UUserWidget>(this, NotificationTextWidgetClass);
+		if (IsValid(NotificationTextWidgetInstance) == true)
+		{
+			NotificationTextWidgetInstance->AddToViewport();
 		}
 	}
 }
@@ -53,6 +68,13 @@ void ABBPlayerController::SetChatMessageString(const FString& InChatMessageStrin
 void ABBPlayerController::PrintChatMessageString(const FString& InChatMessageString)
 {
 	BaseBallFunctionLibrary::MyPrintString(this, InChatMessageString, 10.f);
+}
+
+void ABBPlayerController::GetLifetimeReplicatedProps(TArray<class FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME(ThisClass, NotificationText);
 }
 
 void ABBPlayerController::ServerRPCPrintChatMessageString_Implementation(const FString& InChatMessageString)

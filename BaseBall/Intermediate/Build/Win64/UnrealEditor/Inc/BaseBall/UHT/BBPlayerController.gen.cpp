@@ -15,6 +15,7 @@ BASEBALL_API UClass* Z_Construct_UClass_ABBPlayerController_NoRegister();
 BASEBALL_API UClass* Z_Construct_UClass_UBBChatInput_NoRegister();
 COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 ENGINE_API UClass* Z_Construct_UClass_APlayerController();
+UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
 UPackage* Z_Construct_UPackage__Script_BaseBall();
 // End Cross Module References
 
@@ -158,9 +159,24 @@ struct Z_Construct_UClass_ABBPlayerController_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Player/BBPlayerController.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_NotificationTextWidgetClass_MetaData[] = {
+		{ "Category", "BBPlayerController" },
+		{ "ModuleRelativePath", "Player/BBPlayerController.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_NotificationTextWidgetInstance_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Player/BBPlayerController.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_NotificationText_MetaData[] = {
+		{ "Category", "BBPlayerController" },
+		{ "ModuleRelativePath", "Player/BBPlayerController.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FClassPropertyParams NewProp_ChatInputWidgetClass;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ChatInputWidgetInstance;
+	static const UECodeGen_Private::FClassPropertyParams NewProp_NotificationTextWidgetClass;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_NotificationTextWidgetInstance;
+	static const UECodeGen_Private::FTextPropertyParams NewProp_NotificationText;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -175,9 +191,15 @@ struct Z_Construct_UClass_ABBPlayerController_Statics
 };
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ABBPlayerController_Statics::NewProp_ChatInputWidgetClass = { "ChatInputWidgetClass", nullptr, (EPropertyFlags)0x0024080000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABBPlayerController, ChatInputWidgetClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UBBChatInput_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ChatInputWidgetClass_MetaData), NewProp_ChatInputWidgetClass_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABBPlayerController_Statics::NewProp_ChatInputWidgetInstance = { "ChatInputWidgetInstance", nullptr, (EPropertyFlags)0x0124080000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABBPlayerController, ChatInputWidgetInstance), Z_Construct_UClass_UBBChatInput_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ChatInputWidgetInstance_MetaData), NewProp_ChatInputWidgetInstance_MetaData) };
+const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ABBPlayerController_Statics::NewProp_NotificationTextWidgetClass = { "NotificationTextWidgetClass", nullptr, (EPropertyFlags)0x0024080000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABBPlayerController, NotificationTextWidgetClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_NotificationTextWidgetClass_MetaData), NewProp_NotificationTextWidgetClass_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABBPlayerController_Statics::NewProp_NotificationTextWidgetInstance = { "NotificationTextWidgetInstance", nullptr, (EPropertyFlags)0x0124080000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABBPlayerController, NotificationTextWidgetInstance), Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_NotificationTextWidgetInstance_MetaData), NewProp_NotificationTextWidgetInstance_MetaData) };
+const UECodeGen_Private::FTextPropertyParams Z_Construct_UClass_ABBPlayerController_Statics::NewProp_NotificationText = { "NotificationText", nullptr, (EPropertyFlags)0x0010000000000034, UECodeGen_Private::EPropertyGenFlags::Text, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABBPlayerController, NotificationText), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_NotificationText_MetaData), NewProp_NotificationText_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABBPlayerController_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABBPlayerController_Statics::NewProp_ChatInputWidgetClass,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABBPlayerController_Statics::NewProp_ChatInputWidgetInstance,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABBPlayerController_Statics::NewProp_NotificationTextWidgetClass,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABBPlayerController_Statics::NewProp_NotificationTextWidgetInstance,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABBPlayerController_Statics::NewProp_NotificationText,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ABBPlayerController_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ABBPlayerController_Statics::DependentSingletons[])() = {
@@ -212,7 +234,13 @@ template<> BASEBALL_API UClass* StaticClass<ABBPlayerController>()
 {
 	return ABBPlayerController::StaticClass();
 }
-ABBPlayerController::ABBPlayerController(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
+void ABBPlayerController::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const
+{
+	static const FName Name_NotificationText(TEXT("NotificationText"));
+	const bool bIsValid = true
+		&& Name_NotificationText == ClassReps[(int32)ENetFields_Private::NotificationText].Property->GetFName();
+	checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in ABBPlayerController"));
+}
 DEFINE_VTABLE_PTR_HELPER_CTOR(ABBPlayerController);
 ABBPlayerController::~ABBPlayerController() {}
 // End Class ABBPlayerController
@@ -221,10 +249,10 @@ ABBPlayerController::~ABBPlayerController() {}
 struct Z_CompiledInDeferFile_FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABBPlayerController, ABBPlayerController::StaticClass, TEXT("ABBPlayerController"), &Z_Registration_Info_UClass_ABBPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABBPlayerController), 3813166310U) },
+		{ Z_Construct_UClass_ABBPlayerController, ABBPlayerController::StaticClass, TEXT("ABBPlayerController"), &Z_Registration_Info_UClass_ABBPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABBPlayerController), 1847993099U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_3742682086(TEXT("/Script/BaseBall"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_717155018(TEXT("/Script/BaseBall"),
 	Z_CompiledInDeferFile_FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
