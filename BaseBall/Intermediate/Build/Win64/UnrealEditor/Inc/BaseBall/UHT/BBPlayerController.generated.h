@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define BASEBALL_BBPlayerController_generated_h
 
-#define FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_15_INCLASS_NO_PURE_DECLS \
+#define FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesABBPlayerController(); \
 	friend struct Z_Construct_UClass_ABBPlayerController_Statics; \
@@ -23,7 +23,7 @@ public: \
 	DECLARE_SERIALIZER(ABBPlayerController)
 
 
-#define FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_15_ENHANCED_CONSTRUCTORS \
+#define FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_16_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ABBPlayerController(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
@@ -37,12 +37,12 @@ public: \
 	NO_API virtual ~ABBPlayerController();
 
 
-#define FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_12_PROLOG
-#define FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_15_GENERATED_BODY \
+#define FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_13_PROLOG
+#define FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_16_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_15_INCLASS_NO_PURE_DECLS \
-	FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_15_ENHANCED_CONSTRUCTORS \
+	FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_16_INCLASS_NO_PURE_DECLS \
+	FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_16_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
