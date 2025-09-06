@@ -11,6 +11,7 @@
     <None Include="..\..\Source\BaseBallEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.vsconfig" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -37,6 +38,24 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\BaseBall\BaseBall.h">
       <Filter>Source\BaseBall</Filter>
+    </ClCompile>
+    <Filter Include="Source\BaseBall\Game">
+      <UniqueIdentifier>{57219951-0372-3F83-B5AB-D3E170E0C853}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\BaseBall\Game\BBGameModeBase.cpp">
+      <Filter>Source\BaseBall\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BaseBall\Game\BBGameModeBase.h">
+      <Filter>Source\BaseBall\Game</Filter>
+    </ClCompile>
+    <Filter Include="Source\BaseBall\Player">
+      <UniqueIdentifier>{E491BD0B-7ACC-3AD9-8C64-02A470F3B575}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\BaseBall\Player\BBPlayerController.cpp">
+      <Filter>Source\BaseBall\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BaseBall\Player\BBPlayerController.h">
+      <Filter>Source\BaseBall\Player</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
