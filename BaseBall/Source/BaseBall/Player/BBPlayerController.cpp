@@ -5,6 +5,7 @@
 
 #include "UI/BBChatInput.h"
 #include "Kismet/KismetSystemLibrary.h"
+#include "BaseBall.h"
 
 void ABBPlayerController::BeginPlay()
 {
@@ -36,5 +37,5 @@ void ABBPlayerController::SetChatMessageString(const FString& InChatMessageStrin
 
 void ABBPlayerController::PrintChatMessageString(const FString& InChatMessageString)
 {
-	UKismetSystemLibrary::PrintString(this, ChatMessageString, true, true, FLinearColor::Red, 5.0f);
+	BaseBallFunctionLibrary::MyPrintString(this, InChatMessageString, 10.f);
 }
