@@ -7,6 +7,9 @@
 #include "Kismet/KismetSystemLibrary.h"
 #include "BaseBall.h"
 #include "EngineUtils.h"
+#include "Kismet/GameplayStatics.h"
+#include "Game/BBGameModeBase.h"
+#include "BBPlayerState.h"
 
 void ABBPlayerController::BeginPlay()
 {
@@ -35,7 +38,15 @@ void ABBPlayerController::SetChatMessageString(const FString& InChatMessageStrin
 	ChatMessageString = InChatMessageString;
 	if (IsLocalController() == true)
 	{
-		ServerRPCPrintChatMessageString(InChatMessageString);		
+		// ServerRPCPrintChatMessageString(InChatMessageString);
+
+		ABBPlayerState* BBPS = GetPlayerState<ABBPlayerState>();
+		if (IsValid(BBPS) == true)
+		{
+			FString CombinedMessageString = BBPS->GetPlayerInfoString() + TEXT(": ") + InChatMessageString;
+
+			ServerRPCPrintChatMessageString(CombinedMessageString);
+		}
 	}
 }
 
@@ -46,12 +57,13 @@ void ABBPlayerController::PrintChatMessageString(const FString& InChatMessageStr
 
 void ABBPlayerController::ServerRPCPrintChatMessageString_Implementation(const FString& InChatMessageString)
 {
-	for (TActorIterator<ABBPlayerController> It(GetWorld()); It; ++It)
+	AGameModeBase* GM = UGameplayStatics::GetGameMode(this);
+	if (IsValid(GM) == true)
 	{
-		ABBPlayerController* BBPlayerController = *It;
-		if (IsValid(BBPlayerController) == true)
+		ABBGameModeBase* BBGM = Cast<ABBGameModeBase>(GM);
+		if (IsValid(BBGM) == true)
 		{
-			BBPlayerController->ClientRPCPrintChatMessageString(InChatMessageString);
+			BBGM->PrintChatMessageString(this, InChatMessageString);
 		}
 	}
 }

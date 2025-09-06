@@ -6,13 +6,14 @@
 			"description": "Default Uncontrolled Changelist",
 			"files": [
 				"D:/GitHub/HW09/BaseBall/Content/BaseBall/Maps/Chatting.umap",
-				"D:/GitHub/HW09/BaseBall/Content/Blueprint/Game/BP_GameModeBase.uasset",
-				"D:/GitHub/HW09/BaseBall/Content/Blueprint/Player/BP_PlayerController.uasset",
-				"D:/GitHub/HW09/BaseBall/Content/Blueprint/UI/WBP_ChatInput.uasset",
 				"D:/GitHub/HW09/BaseBall/Content/BaseBall/Blueprint/Game/BP_GameModeBase.uasset",
 				"D:/GitHub/HW09/BaseBall/Content/BaseBall/Blueprint/Player/BP_PlayerController.uasset",
 				"D:/GitHub/HW09/BaseBall/Content/BaseBall/Blueprint/UI/WBP_ChatInput.uasset",
-				"D:/GitHub/HW09/BaseBall/Content/BaseBall/Blueprint/Game/BP_GameStateBase.uasset"
+				"D:/GitHub/HW09/BaseBall/Content/BaseBall/Blueprint/Game/BP_GameStateBase.uasset",
+				"D:/GitHub/HW09/BaseBall/Content/BaseBall/Blueprint/Player/BP_PlayerState.uasset",
+				"D:/GitHub/HW09/BaseBall/Content/Blueprint/Game/BP_GameModeBase.uasset",
+				"D:/GitHub/HW09/BaseBall/Content/Blueprint/Player/BP_PlayerController.uasset",
+				"D:/GitHub/HW09/BaseBall/Content/Blueprint/UI/WBP_ChatInput.uasset"
 			]
 		}
 	]
