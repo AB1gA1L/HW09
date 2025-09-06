@@ -18,9 +18,121 @@ ENGINE_API UClass* Z_Construct_UClass_APlayerController();
 UPackage* Z_Construct_UPackage__Script_BaseBall();
 // End Cross Module References
 
+// Begin Class ABBPlayerController Function ClientRPCPrintChatMessageString
+struct BBPlayerController_eventClientRPCPrintChatMessageString_Parms
+{
+	FString InChatMessageString;
+};
+static const FName NAME_ABBPlayerController_ClientRPCPrintChatMessageString = FName(TEXT("ClientRPCPrintChatMessageString"));
+void ABBPlayerController::ClientRPCPrintChatMessageString(const FString& InChatMessageString)
+{
+	BBPlayerController_eventClientRPCPrintChatMessageString_Parms Parms;
+	Parms.InChatMessageString=InChatMessageString;
+	UFunction* Func = FindFunctionChecked(NAME_ABBPlayerController_ClientRPCPrintChatMessageString);
+	ProcessEvent(Func,&Parms);
+}
+struct Z_Construct_UFunction_ABBPlayerController_ClientRPCPrintChatMessageString_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Player/BBPlayerController.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_InChatMessageString_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStrPropertyParams NewProp_InChatMessageString;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_ABBPlayerController_ClientRPCPrintChatMessageString_Statics::NewProp_InChatMessageString = { "InChatMessageString", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BBPlayerController_eventClientRPCPrintChatMessageString_Parms, InChatMessageString), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InChatMessageString_MetaData), NewProp_InChatMessageString_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ABBPlayerController_ClientRPCPrintChatMessageString_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABBPlayerController_ClientRPCPrintChatMessageString_Statics::NewProp_InChatMessageString,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ABBPlayerController_ClientRPCPrintChatMessageString_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ABBPlayerController_ClientRPCPrintChatMessageString_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ABBPlayerController, nullptr, "ClientRPCPrintChatMessageString", nullptr, nullptr, Z_Construct_UFunction_ABBPlayerController_ClientRPCPrintChatMessageString_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ABBPlayerController_ClientRPCPrintChatMessageString_Statics::PropPointers), sizeof(BBPlayerController_eventClientRPCPrintChatMessageString_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x01020CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ABBPlayerController_ClientRPCPrintChatMessageString_Statics::Function_MetaDataParams), Z_Construct_UFunction_ABBPlayerController_ClientRPCPrintChatMessageString_Statics::Function_MetaDataParams) };
+static_assert(sizeof(BBPlayerController_eventClientRPCPrintChatMessageString_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ABBPlayerController_ClientRPCPrintChatMessageString()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ABBPlayerController_ClientRPCPrintChatMessageString_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ABBPlayerController::execClientRPCPrintChatMessageString)
+{
+	P_GET_PROPERTY(FStrProperty,Z_Param_InChatMessageString);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->ClientRPCPrintChatMessageString_Implementation(Z_Param_InChatMessageString);
+	P_NATIVE_END;
+}
+// End Class ABBPlayerController Function ClientRPCPrintChatMessageString
+
+// Begin Class ABBPlayerController Function ServerRPCPrintChatMessageString
+struct BBPlayerController_eventServerRPCPrintChatMessageString_Parms
+{
+	FString InChatMessageString;
+};
+static const FName NAME_ABBPlayerController_ServerRPCPrintChatMessageString = FName(TEXT("ServerRPCPrintChatMessageString"));
+void ABBPlayerController::ServerRPCPrintChatMessageString(const FString& InChatMessageString)
+{
+	BBPlayerController_eventServerRPCPrintChatMessageString_Parms Parms;
+	Parms.InChatMessageString=InChatMessageString;
+	UFunction* Func = FindFunctionChecked(NAME_ABBPlayerController_ServerRPCPrintChatMessageString);
+	ProcessEvent(Func,&Parms);
+}
+struct Z_Construct_UFunction_ABBPlayerController_ServerRPCPrintChatMessageString_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Player/BBPlayerController.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_InChatMessageString_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStrPropertyParams NewProp_InChatMessageString;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_ABBPlayerController_ServerRPCPrintChatMessageString_Statics::NewProp_InChatMessageString = { "InChatMessageString", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BBPlayerController_eventServerRPCPrintChatMessageString_Parms, InChatMessageString), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InChatMessageString_MetaData), NewProp_InChatMessageString_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ABBPlayerController_ServerRPCPrintChatMessageString_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABBPlayerController_ServerRPCPrintChatMessageString_Statics::NewProp_InChatMessageString,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ABBPlayerController_ServerRPCPrintChatMessageString_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ABBPlayerController_ServerRPCPrintChatMessageString_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ABBPlayerController, nullptr, "ServerRPCPrintChatMessageString", nullptr, nullptr, Z_Construct_UFunction_ABBPlayerController_ServerRPCPrintChatMessageString_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ABBPlayerController_ServerRPCPrintChatMessageString_Statics::PropPointers), sizeof(BBPlayerController_eventServerRPCPrintChatMessageString_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00220CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ABBPlayerController_ServerRPCPrintChatMessageString_Statics::Function_MetaDataParams), Z_Construct_UFunction_ABBPlayerController_ServerRPCPrintChatMessageString_Statics::Function_MetaDataParams) };
+static_assert(sizeof(BBPlayerController_eventServerRPCPrintChatMessageString_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ABBPlayerController_ServerRPCPrintChatMessageString()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ABBPlayerController_ServerRPCPrintChatMessageString_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ABBPlayerController::execServerRPCPrintChatMessageString)
+{
+	P_GET_PROPERTY(FStrProperty,Z_Param_InChatMessageString);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->ServerRPCPrintChatMessageString_Implementation(Z_Param_InChatMessageString);
+	P_NATIVE_END;
+}
+// End Class ABBPlayerController Function ServerRPCPrintChatMessageString
+
 // Begin Class ABBPlayerController
 void ABBPlayerController::StaticRegisterNativesABBPlayerController()
 {
+	UClass* Class = ABBPlayerController::StaticClass();
+	static const FNameNativePtrPair Funcs[] = {
+		{ "ClientRPCPrintChatMessageString", &ABBPlayerController::execClientRPCPrintChatMessageString },
+		{ "ServerRPCPrintChatMessageString", &ABBPlayerController::execServerRPCPrintChatMessageString },
+	};
+	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
 IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(ABBPlayerController);
 UClass* Z_Construct_UClass_ABBPlayerController_NoRegister()
@@ -51,6 +163,11 @@ struct Z_Construct_UClass_ABBPlayerController_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ChatInputWidgetInstance;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
+	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_ABBPlayerController_ClientRPCPrintChatMessageString, "ClientRPCPrintChatMessageString" }, // 1036099581
+		{ &Z_Construct_UFunction_ABBPlayerController_ServerRPCPrintChatMessageString, "ServerRPCPrintChatMessageString" }, // 2385102866
+	};
+	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ABBPlayerController>::IsAbstract,
 	};
@@ -73,11 +190,11 @@ const UECodeGen_Private::FClassParams Z_Construct_UClass_ABBPlayerController_Sta
 	"Game",
 	&StaticCppClassTypeInfo,
 	DependentSingletons,
-	nullptr,
+	FuncInfo,
 	Z_Construct_UClass_ABBPlayerController_Statics::PropPointers,
 	nullptr,
 	UE_ARRAY_COUNT(DependentSingletons),
-	0,
+	UE_ARRAY_COUNT(FuncInfo),
 	UE_ARRAY_COUNT(Z_Construct_UClass_ABBPlayerController_Statics::PropPointers),
 	0,
 	0x009002A4u,
@@ -104,10 +221,10 @@ ABBPlayerController::~ABBPlayerController() {}
 struct Z_CompiledInDeferFile_FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABBPlayerController, ABBPlayerController::StaticClass, TEXT("ABBPlayerController"), &Z_Registration_Info_UClass_ABBPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABBPlayerController), 2930291664U) },
+		{ Z_Construct_UClass_ABBPlayerController, ABBPlayerController::StaticClass, TEXT("ABBPlayerController"), &Z_Registration_Info_UClass_ABBPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABBPlayerController), 3813166310U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_515732822(TEXT("/Script/BaseBall"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_3742682086(TEXT("/Script/BaseBall"),
 	Z_CompiledInDeferFile_FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

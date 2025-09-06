@@ -14,6 +14,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define BASEBALL_BBPlayerController_generated_h
 
+#define FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void ServerRPCPrintChatMessageString_Implementation(const FString& InChatMessageString); \
+	virtual void ClientRPCPrintChatMessageString_Implementation(const FString& InChatMessageString); \
+	DECLARE_FUNCTION(execServerRPCPrintChatMessageString); \
+	DECLARE_FUNCTION(execClientRPCPrintChatMessageString);
+
+
+#define FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_16_CALLBACK_WRAPPERS
 #define FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesABBPlayerController(); \
@@ -41,6 +49,8 @@ public: \
 #define FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_16_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
+	FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_16_CALLBACK_WRAPPERS \
 	FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_16_INCLASS_NO_PURE_DECLS \
 	FID_GitHub_HW09_BaseBall_Source_BaseBall_Player_BBPlayerController_h_16_ENHANCED_CONSTRUCTORS \
 private: \

@@ -6,6 +6,7 @@
 #include "UI/BBChatInput.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "BaseBall.h"
+#include "EngineUtils.h"
 
 void ABBPlayerController::BeginPlay()
 {
@@ -32,10 +33,30 @@ void ABBPlayerController::BeginPlay()
 void ABBPlayerController::SetChatMessageString(const FString& InChatMessageString)
 {
 	ChatMessageString = InChatMessageString;
-	PrintChatMessageString(ChatMessageString);
+	if (IsLocalController() == true)
+	{
+		ServerRPCPrintChatMessageString(InChatMessageString);		
+	}
 }
 
 void ABBPlayerController::PrintChatMessageString(const FString& InChatMessageString)
 {
 	BaseBallFunctionLibrary::MyPrintString(this, InChatMessageString, 10.f);
+}
+
+void ABBPlayerController::ServerRPCPrintChatMessageString_Implementation(const FString& InChatMessageString)
+{
+	for (TActorIterator<ABBPlayerController> It(GetWorld()); It; ++It)
+	{
+		ABBPlayerController* BBPlayerController = *It;
+		if (IsValid(BBPlayerController) == true)
+		{
+			BBPlayerController->ClientRPCPrintChatMessageString(InChatMessageString);
+		}
+	}
+}
+
+void ABBPlayerController::ClientRPCPrintChatMessageString_Implementation(const FString& InChatMessageString)
+{
+	PrintChatMessageString(InChatMessageString);
 }
