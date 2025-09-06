@@ -14,7 +14,11 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define BASEBALL_BBChatInput_generated_h
 
-#define FID_GitHub_HW09_BaseBall_Source_BaseBall_UI_BBChatInput_h_16_INCLASS_NO_PURE_DECLS \
+#define FID_GitHub_HW09_BaseBall_Source_BaseBall_UI_BBChatInput_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execOnChatInputTextCommitted);
+
+
+#define FID_GitHub_HW09_BaseBall_Source_BaseBall_UI_BBChatInput_h_19_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUBBChatInput(); \
 	friend struct Z_Construct_UClass_UBBChatInput_Statics; \
@@ -23,7 +27,7 @@ public: \
 	DECLARE_SERIALIZER(UBBChatInput)
 
 
-#define FID_GitHub_HW09_BaseBall_Source_BaseBall_UI_BBChatInput_h_16_ENHANCED_CONSTRUCTORS \
+#define FID_GitHub_HW09_BaseBall_Source_BaseBall_UI_BBChatInput_h_19_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UBBChatInput(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
@@ -37,12 +41,13 @@ public: \
 	NO_API virtual ~UBBChatInput();
 
 
-#define FID_GitHub_HW09_BaseBall_Source_BaseBall_UI_BBChatInput_h_13_PROLOG
-#define FID_GitHub_HW09_BaseBall_Source_BaseBall_UI_BBChatInput_h_16_GENERATED_BODY \
+#define FID_GitHub_HW09_BaseBall_Source_BaseBall_UI_BBChatInput_h_16_PROLOG
+#define FID_GitHub_HW09_BaseBall_Source_BaseBall_UI_BBChatInput_h_19_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_GitHub_HW09_BaseBall_Source_BaseBall_UI_BBChatInput_h_16_INCLASS_NO_PURE_DECLS \
-	FID_GitHub_HW09_BaseBall_Source_BaseBall_UI_BBChatInput_h_16_ENHANCED_CONSTRUCTORS \
+	FID_GitHub_HW09_BaseBall_Source_BaseBall_UI_BBChatInput_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_GitHub_HW09_BaseBall_Source_BaseBall_UI_BBChatInput_h_19_INCLASS_NO_PURE_DECLS \
+	FID_GitHub_HW09_BaseBall_Source_BaseBall_UI_BBChatInput_h_19_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

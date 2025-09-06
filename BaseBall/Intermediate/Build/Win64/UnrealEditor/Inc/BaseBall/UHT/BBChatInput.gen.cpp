@@ -12,14 +12,70 @@ void EmptyLinkFunctionForGeneratedCodeBBChatInput() {}
 // Begin Cross Module References
 BASEBALL_API UClass* Z_Construct_UClass_UBBChatInput();
 BASEBALL_API UClass* Z_Construct_UClass_UBBChatInput_NoRegister();
+SLATECORE_API UEnum* Z_Construct_UEnum_SlateCore_ETextCommit();
 UMG_API UClass* Z_Construct_UClass_UEditableTextBox_NoRegister();
 UMG_API UClass* Z_Construct_UClass_UUserWidget();
 UPackage* Z_Construct_UPackage__Script_BaseBall();
 // End Cross Module References
 
+// Begin Class UBBChatInput Function OnChatInputTextCommitted
+struct Z_Construct_UFunction_UBBChatInput_OnChatInputTextCommitted_Statics
+{
+	struct BBChatInput_eventOnChatInputTextCommitted_Parms
+	{
+		FText Text;
+		TEnumAsByte<ETextCommit::Type> CommitMethod;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "UI/BBChatInput.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Text_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FTextPropertyParams NewProp_Text;
+	static const UECodeGen_Private::FBytePropertyParams NewProp_CommitMethod;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FTextPropertyParams Z_Construct_UFunction_UBBChatInput_OnChatInputTextCommitted_Statics::NewProp_Text = { "Text", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Text, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BBChatInput_eventOnChatInputTextCommitted_Parms, Text), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Text_MetaData), NewProp_Text_MetaData) };
+const UECodeGen_Private::FBytePropertyParams Z_Construct_UFunction_UBBChatInput_OnChatInputTextCommitted_Statics::NewProp_CommitMethod = { "CommitMethod", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BBChatInput_eventOnChatInputTextCommitted_Parms, CommitMethod), Z_Construct_UEnum_SlateCore_ETextCommit, METADATA_PARAMS(0, nullptr) }; // 1817921380
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UBBChatInput_OnChatInputTextCommitted_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBBChatInput_OnChatInputTextCommitted_Statics::NewProp_Text,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBBChatInput_OnChatInputTextCommitted_Statics::NewProp_CommitMethod,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UBBChatInput_OnChatInputTextCommitted_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UBBChatInput_OnChatInputTextCommitted_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UBBChatInput, nullptr, "OnChatInputTextCommitted", nullptr, nullptr, Z_Construct_UFunction_UBBChatInput_OnChatInputTextCommitted_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UBBChatInput_OnChatInputTextCommitted_Statics::PropPointers), sizeof(Z_Construct_UFunction_UBBChatInput_OnChatInputTextCommitted_Statics::BBChatInput_eventOnChatInputTextCommitted_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00480401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UBBChatInput_OnChatInputTextCommitted_Statics::Function_MetaDataParams), Z_Construct_UFunction_UBBChatInput_OnChatInputTextCommitted_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UBBChatInput_OnChatInputTextCommitted_Statics::BBChatInput_eventOnChatInputTextCommitted_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UBBChatInput_OnChatInputTextCommitted()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UBBChatInput_OnChatInputTextCommitted_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UBBChatInput::execOnChatInputTextCommitted)
+{
+	P_GET_PROPERTY_REF(FTextProperty,Z_Param_Out_Text);
+	P_GET_PROPERTY(FByteProperty,Z_Param_CommitMethod);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->OnChatInputTextCommitted(Z_Param_Out_Text,ETextCommit::Type(Z_Param_CommitMethod));
+	P_NATIVE_END;
+}
+// End Class UBBChatInput Function OnChatInputTextCommitted
+
 // Begin Class UBBChatInput
 void UBBChatInput::StaticRegisterNativesUBBChatInput()
 {
+	UClass* Class = UBBChatInput::StaticClass();
+	static const FNameNativePtrPair Funcs[] = {
+		{ "OnChatInputTextCommitted", &UBBChatInput::execOnChatInputTextCommitted },
+	};
+	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
 IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UBBChatInput);
 UClass* Z_Construct_UClass_UBBChatInput_NoRegister()
@@ -45,6 +101,10 @@ struct Z_Construct_UClass_UBBChatInput_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_EditableTextBox_ChatInput;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
+	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_UBBChatInput_OnChatInputTextCommitted, "OnChatInputTextCommitted" }, // 1664701969
+	};
+	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UBBChatInput>::IsAbstract,
 	};
@@ -65,11 +125,11 @@ const UECodeGen_Private::FClassParams Z_Construct_UClass_UBBChatInput_Statics::C
 	nullptr,
 	&StaticCppClassTypeInfo,
 	DependentSingletons,
-	nullptr,
+	FuncInfo,
 	Z_Construct_UClass_UBBChatInput_Statics::PropPointers,
 	nullptr,
 	UE_ARRAY_COUNT(DependentSingletons),
-	0,
+	UE_ARRAY_COUNT(FuncInfo),
 	UE_ARRAY_COUNT(Z_Construct_UClass_UBBChatInput_Statics::PropPointers),
 	0,
 	0x00B010A0u,
@@ -96,10 +156,10 @@ UBBChatInput::~UBBChatInput() {}
 struct Z_CompiledInDeferFile_FID_GitHub_HW09_BaseBall_Source_BaseBall_UI_BBChatInput_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UBBChatInput, UBBChatInput::StaticClass, TEXT("UBBChatInput"), &Z_Registration_Info_UClass_UBBChatInput, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBBChatInput), 2645114064U) },
+		{ Z_Construct_UClass_UBBChatInput, UBBChatInput::StaticClass, TEXT("UBBChatInput"), &Z_Registration_Info_UClass_UBBChatInput, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBBChatInput), 471996220U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_HW09_BaseBall_Source_BaseBall_UI_BBChatInput_h_3104772434(TEXT("/Script/BaseBall"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_HW09_BaseBall_Source_BaseBall_UI_BBChatInput_h_1092493584(TEXT("/Script/BaseBall"),
 	Z_CompiledInDeferFile_FID_GitHub_HW09_BaseBall_Source_BaseBall_UI_BBChatInput_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GitHub_HW09_BaseBall_Source_BaseBall_UI_BBChatInput_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

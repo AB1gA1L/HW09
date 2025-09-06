@@ -6,7 +6,7 @@
 #include "GameFramework/PlayerController.h"
 #include "BBPlayerController.generated.h"
 
-class UCXChatInput;
+class UBBChatInput;
 /**
  * 
  */
@@ -17,12 +17,17 @@ class BASEBALL_API ABBPlayerController : public APlayerController
 	
 public:
 	virtual void BeginPlay() override;
-
+	
+	void SetChatMessageString(const FString& InChatMessageString);
+	
+	void PrintChatMessageString(const FString& InChatMessageString);
+	
 protected:
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<UBBChatInput> ChatInputWidgetClass;
 	
 	UPROPERTY()
-	TObjectPtr<UBBChatInput> ChatInputWidgetInstance;	
+	TObjectPtr<UBBChatInput> ChatInputWidgetInstance;
 	
+	FString ChatMessageString;
 };
